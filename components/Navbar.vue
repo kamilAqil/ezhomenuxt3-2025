@@ -20,7 +20,7 @@
       </nav>
 
       <!-- Desktop CTA -->
-      <UButton to="/get-offer" color="primary" class="hidden md:inline-flex">
+      <UButton to="#contact" color="primary" class="hidden md:inline-flex">
         Get Offer
       </UButton>
 
@@ -53,7 +53,7 @@
           {{ link.label }}
         </NuxtLink>
 
-        <UButton to="/get-offer" color="primary" block @click="isOpen = false">
+        <UButton to="#contact" color="primary" block @click="isOpen = false">
           Get Offer
         </UButton>
       </div>
@@ -67,12 +67,10 @@ import { ref } from 'vue'
 const isOpen = ref(false)
 
 const links = [
-  { label: 'How It Works', to: '/how-it-works' },
-  { label: 'Why Choose Us', to: '/why-us' },
-  { label: 'Testimonials', to: '/testimonials' },
-  { label: 'FAQ', to: '/faq' },
-  { label: 'Contact', to: '/contact' },
-  { label: 'Blog', to: '/blog' }
+  { label: 'How It Works', to: '#how-it-works' },
+  { label: 'Why Choose Us', to: '#why-us' },
+  { label: 'Testimonials', to: '#testimonials' },
+  { label: 'FAQ', to: '#faq' }
 ]
 </script>
 

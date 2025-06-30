@@ -1,9 +1,7 @@
 <template>
   <UApp>
     <Navbar />
-    <UPage>
-      <slot />
-    </UPage>
+    <slot />
   </UApp>
 </template>
 

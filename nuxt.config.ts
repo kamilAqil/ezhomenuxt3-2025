@@ -4,4 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui"],
   css: ["~/assets/css/main.css"],
+    ui: {
+    fonts: false // <-- disable the automatic font injection
+  }
 });
