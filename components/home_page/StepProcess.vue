@@ -14,6 +14,7 @@
           <template #header>
             <div class="text-primary text-4xl font-bold">1</div>
           </template>
+          <img src="~/assets/images/3-step-process/step-1.png" alt="">
           <h3 class="text-xl font-semibold mb-2">Tell Us About Your Home</h3>
           <p>Submit your property details through our simple form or give us a call.</p>
         </UCard>
@@ -22,6 +23,7 @@
           <template #header>
             <div class="text-primary text-4xl font-bold">2</div>
           </template>
+          <img src="~/assets/images/3-step-process/step-2.png" alt="">
           <h3 class="text-xl font-semibold mb-2">Receive Your Cash Offer</h3>
           <p>We’ll review your info and send a fair, no-obligation cash offer within 24 hours.</p>
         </UCard>
@@ -30,6 +32,7 @@
           <template #header>
             <div class="text-primary text-4xl font-bold">3</div>
           </template>
+          <img src="~/assets/images/3-step-process/step-3.png" alt="">
           <h3 class="text-xl font-semibold mb-2">Close On Your Schedule</h3>
           <p>Choose your closing date and get paid in as little as 7 days — stress free.</p>
         </UCard>

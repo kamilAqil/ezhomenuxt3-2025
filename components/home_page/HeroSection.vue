@@ -1,9 +1,10 @@
 <script setup>
+import heroImage from '~/assets/images/hero_image.png'
 
 </script>
 
 <template>
-  <section id="hero" class="relative min-h-[80vh] flex items-center justify-center text-white bg-cover bg-center" style="background-image: url('/hero-bg.jpg')">
+  <section id="hero" :style="`background-image: url('${heroImage}')`" class="relative flex items-center justify-center text-white bg-cover bg-center" >
     <div class="absolute inset-0 bg-black/50" />
     
     <UContainer class="relative z-10 text-center px-6 py-12">
@@ -22,5 +23,9 @@
 
 
 <style scoped>
-
+#hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 40vh;
+}
 </style>

@@ -6,6 +6,7 @@ import Testimonials from '~/components/home_page/Testimonials.vue';
 import MeetTheTeam from '~/components/home_page/MeetTheTeam.vue';
 import FAQ from '~/components/home_page/FAQ.vue';
 import ContactForm from '~/components/home_page/ContactForm.vue';
+import WhoWeHelp from '~/components/home_page/WhoWeHelp.vue';
 definePageMeta({
   layout: 'default',
 })
@@ -16,6 +17,7 @@ definePageMeta({
   <StepProcess />
   <WhyChooseUs />
   <Testimonials />
+  <WhoWeHelp />
   <MeetTheTeam />
   <FAQ />
   <ContactForm />
