@@ -14,7 +14,7 @@ import heroImage from '~/assets/images/hero_image.png'
       <p class="text-lg md:text-xl mb-6">
         No Repairs. No Fees. No Hassle. Just a Fair Cash Offer.
       </p>
-      <UButton color="primary" size="lg">
+      <UButton to="#contact" color="primary" size="lg">
         Get My Cash Offer
       </UButton>
     </UContainer>

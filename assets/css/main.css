@@ -4,4 +4,9 @@
 :root {
     --ui-bg: #ffffff;
     --ui-text: #212121;
+    
+}
+
+.text-highlighted {
+  color: black !important;
 }

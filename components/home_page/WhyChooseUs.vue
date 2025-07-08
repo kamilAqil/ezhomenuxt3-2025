@@ -36,7 +36,7 @@
 
         <UCard class="text-center p-6">
           <template #header>
-            <UIcon name="i-heroicons-handshake" class="w-8 h-8 text-primary mx-auto mb-2" />
+            <UIcon name="i-heroicons-hand-thumb-up" class="w-8 h-8 text-primary mx-auto mb-2" />
           </template>
           <h3 class="text-lg font-semibold mb-2">Trusted & Local</h3>
           <p>We’re based in Orange County and have helped dozens of local homeowners.</p>

@@ -1,70 +1,58 @@
+<script setup lang="ts">
+import * as v from 'valibot'
+import type { FormSubmitEvent } from '@nuxt/ui'
+
+const schema = v.object({
+  address: v.pipe(v.string(), v.nonEmpty('Address is required')),
+  name: v.pipe(v.string(), v.nonEmpty('Name is required')),
+  email: v.pipe(v.string(), v.email('Email is invalid')),
+  propertyDescription: v.pipe(v.string(), v.nonEmpty('Property description is required')),
+})
+
+type Schema = v.InferOutput<typeof schema>
+
+const state = reactive<Schema>({
+  address: '',
+  name: '',
+  email: '',
+  propertyDescription: '',
+})
+
+const toast = useToast()
+
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  console.log(event.data)
+}
+</script>
+
 <template>
-  <section id="contact" class="py-16 bg-gray-50">
-    <UContainer>
-      <h2 class="text-3xl font-bold text-center mb-8">
-        Get Your Free Cash Offer
-      </h2>
+  <section class="px-4 py-12 bg-gray-50">
+    <div class="max-w-2xl mx-auto">
+      <UForm :schema="schema" :state="state" @submit="onSubmit" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <UFormField name="address" label="Address">
+            <UInput v-model="state.address" placeholder="Enter your address" />
+          </UFormField>
 
-      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-        Fill out the form below and we'll get back to you with a no-obligation cash offer within 24 hours.
-      </p>
+          <UFormField name="name" label="Name">
+            <UInput v-model="state.name" placeholder="Enter your name" />
+          </UFormField>
 
-      <UForm :state="form" @submit="handleSubmit" class="max-w-2xl mx-auto space-y-6">
-        <UFormGroup label="Your Name" name="name">
-          <UInput v-model="form.name" placeholder="Jane Doe" />
-        </UFormGroup>
+          <UFormField name="email" label="Email">
+            <UInput v-model="state.email" placeholder="Enter your email" />
+          </UFormField>
 
-        <UFormGroup label="Email Address" name="email">
-          <UInput type="email" v-model="form.email" placeholder="you@example.com" />
-        </UFormGroup>
+          <UFormField name="propertyDescription" label="Property Description" class="md:col-span-2">
+            <UInput v-model="state.propertyDescription" placeholder="Enter property description" />
+          </UFormField>
+        </div>
 
-        <UFormGroup label="Phone Number" name="phone">
-          <UInput type="tel" v-model="form.phone" placeholder="(123) 456-7890" />
-        </UFormGroup>
-
-        <UFormGroup label="Property Address" name="address">
-          <UInput v-model="form.address" placeholder="123 Main St, Anaheim, CA" />
-        </UFormGroup>
-
-        <UFormGroup label="Brief Description" name="message">
-          <UTextarea v-model="form.message" placeholder="Tell us about your home or situation..." />
-        </UFormGroup>
-
-        <UButton type="submit" color="primary" size="lg" block :loading="submitting">
-          Get My Cash Offer
-        </UButton>
+        <div class="pt-4">
+          <UButton type="submit" block size="lg">Submit</UButton>
+        </div>
       </UForm>
-    </UContainer>
+    </div>
   </section>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const form = ref({
-  name: '',
-  email: '',
-  phone: '',
-  address: '',
-  message: ''
-})
-
-const submitting = ref(false)
-
-function handleSubmit() {
-  submitting.value = true
-
-  // TODO: Replace with real API call or form handling logic
-  setTimeout(() => {
-    alert('Form submitted! We’ll be in touch shortly.')
-    submitting.value = false
-    form.value = {
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      message: ''
-    }
-  }, 1000)
-}
-</script>

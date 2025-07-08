@@ -12,14 +12,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#1E88E5",
-        secondary: "#E3F2FD",
-        accent: "#FF6F00",
-        surface: "#F5F5F5",
-        background: "#FFFFFF", // override default bg
-        success: "#43A047",
-        error: "#E53935",
-        text: "#212121", // neutral dark text
+        primary: "#4CAF50",
+        secondary: "#C8E6C9",
+        accent: "#FFC107",
+        surface: "#FFFFFF",
+        background: "#FAFAFA",
+        success: "#388E3C",
+        error: "#D32F2F",
+        text: "#212121",
       },
     },
   },
