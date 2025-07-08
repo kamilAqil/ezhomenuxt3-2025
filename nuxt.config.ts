@@ -22,5 +22,12 @@ export default defineNuxtConfig({
     imagekit: {
       baseURL: 'https://ik.imagekit.io/s6a52okgg'
     }
+  },
+    runtimeConfig: {
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+
+    public: {
+      googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY 
+    }
   }
 });
