@@ -10,3 +10,8 @@
 .text-highlighted {
   color: black !important;
 }
+
+
+.text-default {
+  color: white; 
+}

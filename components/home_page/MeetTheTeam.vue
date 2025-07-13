@@ -23,25 +23,20 @@
 <script setup>
 const team = [
   {
-    name: 'Sarah Thompson',
+    name: 'Kamil Aqil',
     role: 'Founder & CEO',
     photo: '/team/sarah.jpg'
   },
   {
-    name: 'Mark Johnson',
+    name: 'Naila Aqil',
     role: 'Acquisition Manager',
     photo: '/team/mark.jpg'
   },
   {
-    name: 'Lisa Wong',
+    name: 'Magnolia Aldana',
     role: 'Operations Lead',
     photo: '/team/lisa.jpg'
   },
-  {
-    name: 'Carlos Ramirez',
-    role: 'Client Success',
-    photo: '/team/carlos.jpg'
-  }
 ]
 </script>
 

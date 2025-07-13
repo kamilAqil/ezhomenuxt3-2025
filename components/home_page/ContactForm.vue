@@ -2,7 +2,7 @@
 import * as v from "valibot";
 import type { FormSubmitEvent } from "@nuxt/ui";
 import { Loader } from "@googlemaps/js-api-loader";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, nextTick } from "vue";
 
 const schema = v.object({
   address: v.pipe(v.string(), v.nonEmpty("Address is required")),
@@ -25,6 +25,9 @@ const state = reactive<Schema>({
 
 const toast = useToast();
 
+// This will be a wrapper div around the UInput
+const autocompleteWrapper = ref<HTMLElement | null>(null);
+
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   toast.add({
     title: "Success",
@@ -34,36 +37,36 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   console.log(event.data);
 }
 
-// Google Places Autocomplete
-const autocompleteRef = ref<HTMLInputElement | null>(null);
-
 onMounted(async () => {
   const loader = new Loader({
-    apiKey: useRuntimeConfig().public.googleMapsApiKey, // Replace with your real key
+    apiKey: useRuntimeConfig().public.googleMapsApiKey,
     libraries: ["places"],
   });
 
   const google = await loader.load();
+  await nextTick();
 
-  const autocomplete = new google.maps.places.Autocomplete(
-    autocompleteRef.value!,
-    {
+  // Query the real <input> inside UInput’s wrapper
+  const inputEl = autocompleteWrapper.value?.querySelector("input") as HTMLInputElement;
+
+  if (inputEl) {
+    const autocomplete = new google.maps.places.Autocomplete(inputEl, {
       types: ["geocode"],
-    }
-  );
+      componentRestrictions: { country: "us" }, // optional
+    });
 
-  autocomplete.addListener("place_changed", () => {
-    const place = autocomplete.getPlace();
-    if (place.formatted_address) {
-      state.address = place.formatted_address;
-    }
-  });
+    autocomplete.addListener("place_changed", () => {
+      const place = autocomplete.getPlace();
+      if (place.formatted_address) {
+        state.address = place.formatted_address;
+      }
+    });
+  }
 });
 </script>
 
-
 <template>
-  <section class="px-4 py-12 bg-gray-50">
+  <section id="contact" class="px-4 py-12 bg-gray-50">
     <div class="max-w-2xl mx-auto">
       <UForm
         :schema="schema"
@@ -73,11 +76,13 @@ onMounted(async () => {
       >
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <UFormField name="address" label="Address">
-            <input
-              ref="autocompleteRef"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md text-black"
-              placeholder="Start typing your address"
-            />
+            <div ref="autocompleteWrapper">
+              <UInput
+                v-model="state.address"
+                placeholder="Start typing your address"
+                class="w-full"
+              />
+            </div>
           </UFormField>
 
           <UFormField name="name" label="Name">
@@ -93,7 +98,7 @@ onMounted(async () => {
             label="Property Description"
             class="md:col-span-2"
           >
-            <UTextarea 
+            <UTextarea
               v-model="state.propertyDescription"
               placeholder="Enter property description"
             />
@@ -107,4 +112,3 @@ onMounted(async () => {
     </div>
   </section>
 </template>
-

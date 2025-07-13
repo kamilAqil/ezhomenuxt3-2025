@@ -26,6 +26,6 @@ import heroImage from '~/assets/images/hero_image.png'
 #hero {
   background-size: cover;
   background-position: center;
-  min-height: 40vh;
+  min-height: 50vh;
 }
 </style>
