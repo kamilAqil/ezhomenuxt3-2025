@@ -3,19 +3,29 @@
 
 
 :root {
-  --ui-bg: #fcfcfc;
+   --ui-bg: #fcfcfc;
   --ui-text: #425275;
+
   --ui-primary: #45669d;
-  --ui-accent: #497bc5;
-  --ui-bright: #4d90ed;
+  --ui-secondary: #497bc5;
+  --ui-tertiary: #4d90ed;
+
+  --ui-info: #209cee;     /* optional info color */
+  --ui-success: #48c78e;  /* optional success color */
+  --ui-warning: #ffdd57;  /* optional warning color */
+  --ui-error: #f14668;    /* optional error color */
 }
+
+
 
 .text-highlighted {
-  color: black !important;
+  color: var(--ui-primary);
 }
 
 
-.text-default {
-  color: white; 
+
+
+h2 {
+  color : var(--ui-secondary);
 }
 

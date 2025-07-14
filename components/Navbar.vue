@@ -3,8 +3,13 @@
     <UContainer class="flex items-center justify-between py-4">
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center gap-2 text-xl font-bold text-primary">
-        <UIcon name="i-heroicons-home" class="w-5 h-5" />
-        EZ Home Cashout
+        <NuxtImg
+          src="ezhome%20cashout%20nuxt%203/logo-1.png?updatedAt=1752457368231"
+          alt="EZ Home Logo"
+         
+          sizes="(max-width: 768px) 100px, (max-width: 1024px) 120px, 150px"
+          format="webp"
+        />
       </NuxtLink>
 
       <!-- Desktop Nav -->
@@ -20,7 +25,7 @@
       </nav>
 
       <!-- Desktop CTA -->
-      <UButton to="#contact" color="primary" class="hidden md:inline-flex">
+      <UButton to="#contact" color="secondary" class="text-white hidden md:inline-flex">
         Get Offer
       </UButton>
 

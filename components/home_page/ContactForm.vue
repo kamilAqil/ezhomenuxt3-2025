@@ -106,7 +106,7 @@ onMounted(async () => {
         </div>
 
         <div class="pt-4">
-          <UButton type="submit" block size="lg">Submit</UButton>
+          <UButton type="submit" block size="lg" class="text-white">Submit</UButton>
         </div>
       </UForm>
     </div>
