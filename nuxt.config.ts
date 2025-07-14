@@ -1,7 +1,10 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxt/image"],
+  modules: ["@nuxt/ui", "@nuxt/image", "nuxt-gtag" ],
+  gtag: {
+    id: 'G-WBKWLJ15E6'
+  },
   ui: {
     icons: ['heroicons'],
   },
