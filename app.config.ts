@@ -6,7 +6,11 @@ export default defineAppConfig({
       }
     },
     colors: {
-      
+      primary : 'var(--ui-primary)',
+      accent : 'var(--ui-accent)',
+      bright : 'var(--ui-bright)',
+      white : 'var(--ui-white)',
+      dark : 'var(--ui-dark)',
     },
   }
 })

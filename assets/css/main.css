@@ -1,10 +1,13 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+
 :root {
-    --ui-bg: #ffffff;
-    --ui-text: #212121;
-    
+  --ui-bg: #fcfcfc;
+  --ui-text: #425275;
+  --ui-primary: #45669d;
+  --ui-accent: #497bc5;
+  --ui-bright: #4d90ed;
 }
 
 .text-highlighted {
@@ -15,3 +18,4 @@
 .text-default {
   color: white; 
 }
+
