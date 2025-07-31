@@ -1,6 +1,6 @@
 <script setup>
-import heroImage from '~/assets/images/hero_image.png'
 
+let heroImage = `https://ik.imagekit.io/s6a52okgg/ez_home_family_photo.png?updatedAt=1753936549606`;
 </script>
 
 <template>

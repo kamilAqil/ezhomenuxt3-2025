@@ -3,14 +3,17 @@
     <UContainer>
       <h2 class="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
 
-      <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center">
+      <div class="cardsContainer grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center justify-items-center">
         <div v-for="member in team" :key="member.name">
           <UCard class="p-4">
-            <img
-              :src="member.photo"
-              :alt="member.name"
-              class="rounded-full w-24 h-24 object-cover mx-auto mb-4"
-            />
+            <NuxtImg
+            :src="member.photo"
+            width="100"
+            height="100"
+            sizes="(max-width: 768px) 150px, (max-width: 1024px) 200px, 300px"
+            format="webp"
+            class="rounded-full w-24 h-24 object-cover mx-auto mb-4 mx-auto"
+          />
             <h3 class="text-lg font-semibold">{{ member.name }}</h3>
             <p class="text-sm text-gray-600">{{ member.role }}</p>
           </UCard>
@@ -24,18 +27,18 @@
 const team = [
   {
     name: 'Kamil Aqil',
-    role: 'Founder & CEO',
-    photo: '/team/sarah.jpg'
+    role: 'Home Buying Specialist',
+    photo: 'kamil-circle.png?updatedAt=1753939476674'
   },
   {
     name: 'Naila Aqil',
-    role: 'Acquisition Manager',
-    photo: '/team/mark.jpg'
+    role: 'Home Buying Specialist',
+    photo: 'nillo.png?updatedAt=1753939001728'
   },
   {
-    name: 'Magnolia Aldana',
-    role: 'Operations Lead',
-    photo: '/team/lisa.jpg'
+    name: 'Maggie Aldana',
+    role: 'Home Buying Specialist',
+    photo: 'maggie-circle.png?updatedAt=1753940103043'
   },
 ]
 </script>
