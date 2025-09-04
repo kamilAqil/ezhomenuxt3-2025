@@ -3,7 +3,7 @@
     <UContainer>
       <h2 class="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
 
-      <div class="cardsContainer grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center justify-items-center">
+      <div class="cardsContainer grid gap-10 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 text-center justify-items-center justify-center">
         <div v-for="member in team" :key="member.name">
           <UCard class="p-4">
             <NuxtImg

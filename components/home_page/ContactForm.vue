@@ -12,7 +12,17 @@ const schema = v.object({
     v.string(),
     v.nonEmpty("Property description is required")
   ),
+    propertyCondition: v.pipe(
+    v.string(),
+    v.nonEmpty("Property condition is required")
+  ),
 });
+
+// script setup
+const conditionOptions = Array.from({ length: 10 }, (_, i) => ({
+  label: String(i + 1),
+  value: String(i + 1),
+}))
 
 type Schema = v.InferOutput<typeof schema>;
 
@@ -21,7 +31,17 @@ const state = reactive<Schema>({
   name: "",
   email: "",
   propertyDescription: "",
+  propertyCondition: "",
+  timeline: '',
 });
+
+const timelineOptions = [
+  { label: 'Sell Now', value: 'now' },
+  { label: 'Within 1 Month', value: '1_month' },
+  { label: '1–3 Months', value: '1_3_months' },
+  { label: '3–6 Months', value: '3_6_months' },
+  { label: 'More than 6 Months', value: '6_plus_months' }
+]
 
 const toast = useToast();
 
@@ -74,7 +94,7 @@ onMounted(async () => {
         @submit="onSubmit"
         class="space-y-6"
       >
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 gap-4 relative ">
           <UFormField name="address" label="Address">
             <div ref="autocompleteWrapper">
               <UInput
@@ -92,17 +112,28 @@ onMounted(async () => {
           <UFormField name="email" label="Email">
             <UInput v-model="state.email" placeholder="Enter your email" />
           </UFormField>
-
+          <UFormField name="propertyCondition" label="Condition of Property (1–10)">
+              <USelect v-model="state.propertyCondition" :items="conditionOptions" class="w-48" />
+          </UFormField>
+          <!-- Timeline Dropdown -->
+          <UFormField name="timeline" label="When do you want to sell?">
+            <USelect 
+              v-model="state.timeline"
+              :items="timelineOptions"
+              placeholder="Select timeline"
+              class="w-64"
+            />
+          </UFormField>
           <UFormField
             name="propertyDescription"
             label="Property Description"
-            class="md:col-span-2"
           >
             <UTextarea
               v-model="state.propertyDescription"
               placeholder="Enter property description"
             />
           </UFormField>
+          
         </div>
 
         <div class="pt-4">
