@@ -48,14 +48,29 @@ const toast = useToast();
 // This will be a wrapper div around the UInput
 const autocompleteWrapper = ref<HTMLElement | null>(null);
 
-async function onSubmit(event: FormSubmitEvent<Schema>) {
-  toast.add({
-    title: "Success",
-    description: "The form has been submitted.",
-    color: "success",
-  });
-  console.log(event.data);
+async function onSubmit(event) {
+  try {
+    const { data, error } = await useFetch('/api/leads', {
+      method: 'POST',
+      body: event.data
+    })
+
+    if (error.value) throw error.value
+
+    toast.add({
+      title: 'Success',
+      description: 'Lead saved and email sent.',
+      color: 'success'
+    })
+  } catch (e) {
+    toast.add({
+      title: 'Error',
+      description: e?.data?.error || 'Something went wrong.',
+      color: 'error'
+    })
+  }
 }
+
 
 onMounted(async () => {
   const loader = new Loader({

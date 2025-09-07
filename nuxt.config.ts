@@ -28,9 +28,18 @@ export default defineNuxtConfig({
   },
     runtimeConfig: {
     googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+    sendGridApiKey: process.env.NUXT_SENDGRID_API_KEY,
+    sendGridFrom: process.env.NUXT_SENDGRID_FROM,
+    sendGridTo: process.env.NUXT_SENDGRID_TO,
+    databaseUrl: process.env.DATABASE_URL, // e.g. for Supabase or other DBs
+    // Private keys are only available on the server side
 
     public: {
-      googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY 
+      googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+      sendGridApiKey: process.env.NUXT_SENDGRID_API_KEY,
+      sendGridFrom: process.env.NUXT_SENDGRID_FROM,
+      sendGridTo: process.env.NUXT_SENDGRID_TO,
+      databaseUrl: process.env.DATABASE_URL 
     }
   }
 });
